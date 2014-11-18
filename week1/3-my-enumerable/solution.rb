@@ -1,41 +1,28 @@
-module MyEnumerable
-  def map
-    # Your code goes here.
+
+
+module MyEnumarable
+
+  def fillter (&block)
+  result.initialize
+  each { |e| result << e if block.call(e)}
+  result
   end
 
-  def filter
-    # Your code goes here.
+  def map (&block)
+  result.initialize
+  each { |e| result << block.call(e)}
+  result
+  end
+end
+
+class Collection
+  include MyEnumarable
+
+  def initialize (*data)
+  @data = data
   end
 
-  def reject
-    # Your code goes here.
-  end
-
-  def reduce(initial = nil)
-    # Your code goes here.
-  end
-
-  def any?
-    # Your code goes here.
-  end
-
-  def all?
-    # Your code goes here.
-  end
-
-  def each_cons(n)
-    # Your code goes here.
-  end
-
-  def include?(element)
-    # Your code goes here.
-  end
-
-  def count(element = nil)
-    # Your code goes here.
-  end
-
-  def size
-    # Your code goes here.
+  def each
+    @data.each { |el| yield el }
   end
 end
