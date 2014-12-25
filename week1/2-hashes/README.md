@@ -29,7 +29,7 @@ end
 ### Hash#except
 
 `Hash#except` returns a new hash, without the specified keys in it. Kind of like
-a reversed `Hash#pluck`.
+a reversed `Hash#pick`.
 
 ```ruby
 class Hash
